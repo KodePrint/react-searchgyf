@@ -1,4 +1,4 @@
-import '../styles/Gif.scss'
+import './Gif.scss'
 
 const Gif = ({id, title, url}) => {
   return (

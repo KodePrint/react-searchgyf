@@ -1,0 +1,7 @@
+@use '../../__vars' as v;
+
+.ListOfGifs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
