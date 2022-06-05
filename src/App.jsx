@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/App.scss'
 
 // Creamos una constante con GIFs de Developers
@@ -18,18 +18,24 @@ const DIFERENTS_GIF = [
 ]
 
 function App() {
+  // Crear el estado de los gifs
   const [gifs, setGifs] = useState(GIF)
 
-  fetch('https://api.giphy.com/v1/gifs/search?api_key=YnvNKbJEoanVvFeGIdulWJjWyZg5NdYu&q=pandas&limit=25&offset=0&rating=g&lang=en')
+  // Efecto de carga de los gif al renderizar el componente
+  useEffect(() => {
+    console.log('actualizando los gifs')
+    setGifs(DIFERENTS_GIF)
+  }, [])
+  
+  // fetch('https://api.giphy.com/v1/gifs/search?api_key=&q=pandas&limit=25&offset=0&rating=g&lang=en')
   
   return (
     <div className="App">
-      <sectoiin className="App-content">
+      <section className="App-content">
         {
-          gifs.map(singleGif => <img src={singleGif} alt="gif" />)
+          gifs.map(singleGif => <img key={singleGif} src={singleGif} alt="gif" />)
         }
-        <button onClick={() => setGifs(DIFERENTS_GIF)}>Change Gifs</button>
-      </sectoiin>
+      </section>
     </div>
   );
 }
