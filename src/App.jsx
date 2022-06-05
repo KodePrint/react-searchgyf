@@ -1,5 +1,5 @@
 import ListOfGifs from './containers/ListOfGifs';
-import { Route } from 'wouter';
+import { Route, Link } from 'wouter';
 import './styles/App.scss'
 
 function App() {
@@ -8,10 +8,10 @@ function App() {
     <div className="App">
       <section className="App-content">
         <h1>App</h1>
-        <a href="/gif/ssj4">Super Sayayin 4</a>
-        <a href="/gif/Mario">Mario</a>
-        <a href="/gif/Homero">Homero</a>
-        <a href="/gif/rocket racoon">Rocket Racoon</a>
+        <Link href="/gif/ssj4">Super Sayayin 4</Link>
+        <Link href="/gif/Mario">Mario</Link>
+        <Link href="/gif/Homero">Homero</Link>
+        <Link href="/gif/rocket racoon">Rocket Racoon</Link>
         <Route path="/gif/:keyword" component={ListOfGifs} />
       </section>
     </div>
