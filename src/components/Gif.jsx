@@ -1,10 +1,12 @@
+import '../styles/Gif.scss'
+
 const Gif = ({id, title, url}) => {
   return (
-    <div key={id} className="">
-      <p>{id}</p>
-      <h3>{title}</h3>
-      <img src={url} alt="gif" />
-    </div>
+    <a href={`#${id}`}
+    className="Gif">
+      <h4>{ title }</h4>
+      <img src={ url } alt="gif" />
+    </a>
   )
 }
 
