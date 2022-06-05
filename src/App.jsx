@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Gif from './components/Gif';
 import { getGifs } from './services/getGifs';
 import './styles/App.scss'
 
@@ -17,14 +18,11 @@ function App() {
     <div className="App">
       <section className="App-content">
         {
-          gifs.map(singleGif => {
-            return <div key={singleGif.id} className="">
-                <p>{singleGif.id}</p>
-                <h3>{singleGif.title}</h3>
-                <img src={singleGif.url} alt="gif" />
-              </div>
-            }
-          )
+          gifs.map(({ id, title, url }) => <Gif 
+            key={id} 
+            title={title} 
+            url={url} 
+          />)
         }
       </section>
     </div>
