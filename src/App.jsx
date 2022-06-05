@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './styles/App.scss'
 
+const apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=YnvNKbJEoanVvFeGIdulWJjWyZg5NdYu&q=developer&limit=25&offset=0&rating=g&lang=en'
+
 // Creamos una constante con GIFs de Developers
 const GIF = [
   'https://media2.giphy.com/media/bGgsc5mWoryfgKBx1u/200w.webp?cid=ecf05e47bhwyaxqkfcu0ewd5m1zv3jbbhybxpu4f622vf3pz&rid=200w.webp&ct=g',
@@ -24,10 +26,15 @@ function App() {
   // Efecto de carga de los gif al renderizar el componente
   useEffect(() => {
     console.log('actualizando los gifs')
-    setGifs(DIFERENTS_GIF)
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(({data = []}) => {
+        if (Array.isArray(data)) {
+          const gifs = data.map(image => image.images.downsized_medium.url)
+          setGifs(gifs)
+        }
+      } )
   }, [])
-  
-  // fetch('https://api.giphy.com/v1/gifs/search?api_key=&q=pandas&limit=25&offset=0&rating=g&lang=en')
   
   return (
     <div className="App">
