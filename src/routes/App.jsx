@@ -1,8 +1,7 @@
-import ListOfGifs from '../containers/ListOfGifs/ListOfGifs';
 import Home from '../pages/Home/Home';
 import SearchResults from '../pages/SearchResults/SearchResults';
 import Detail from '../pages/Detail/Detail';
-import { Route, Link } from 'wouter';
+import { Route } from 'wouter';
 import './App.scss'
 
 function App() {

@@ -1,7 +1,9 @@
-import { useState,  useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { getGifs } from "../../services/getGifs";
+// Import components
 import ListOfGifs from "../../containers/ListOfGifs/ListOfGifs";
+import Loading from '../../components/Loading/Loading'
+// Import custom hooks
 import { useGifs } from "../../hooks/useGifs";
 
 const POPULAR_GIFS = [
@@ -14,7 +16,7 @@ const POPULAR_GIFS = [
 const Home = () => {
   const [keyword, setKeyword] = useState('')
   const [path, pushLocation] = useLocation()
-  const {loading, gifs} = useGifs({ keyword: 'rick' })
+  const {loading, gifs} = useGifs()
 
   const handleSubmit = (e) => {
     // navegar a otra route
@@ -40,7 +42,7 @@ const Home = () => {
         </div>
       </form>
       <h3>Last Search</h3>
-      <ListOfGifs gifs={gifs} />
+      { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
       <h3 className="App-title">The more searching gifs</h3>
       <ul>
         {

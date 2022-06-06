@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react"
 // Import components
 import Gif from "../../components/Gifs/Gif"
 // Import CSS

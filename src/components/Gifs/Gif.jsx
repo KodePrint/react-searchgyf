@@ -9,7 +9,7 @@ const Gif = ({id, title, url}) => {
           { title }
         </span>
       </h4> */}
-      <img src={ url } alt="gif" />
+      <img loading='lazy' src={ url } alt="gif" />
     </a>
   )
 }
