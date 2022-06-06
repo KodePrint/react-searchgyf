@@ -6,10 +6,10 @@
   break-inside: avoid;
   display: inline-block;
   width: 100%;
-  border-radius: 1rem;
   overflow: hidden;
-
+  
   img {
+    border-radius: 1rem;
     object-fit: contain;
     width: 100%;
   }

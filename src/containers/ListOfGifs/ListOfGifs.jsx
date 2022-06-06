@@ -4,7 +4,6 @@ import Gif from "../../components/Gifs/Gif"
 import "./ListOfGifs.scss"
 
 const ListOfGifs = ({ gifs }) => {
-  console.log('-')
 
   return (
     <div className="ListOfGifs">
