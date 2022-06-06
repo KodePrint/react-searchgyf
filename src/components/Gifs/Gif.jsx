@@ -4,7 +4,11 @@ const Gif = ({id, title, url}) => {
   return (
     <a href={`#${id}`}
     className="Gif">
-      <h4>{ title }</h4>
+      {/* <h4>
+        <span>
+          { title }
+        </span>
+      </h4> */}
       <img src={ url } alt="gif" />
     </a>
   )

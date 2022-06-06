@@ -10,13 +10,14 @@ const POPULAR_GIFS = [
 
 const Home = () => {
   const [keyword, setKeyword] = useState('')
-  const location = useLocation()
-  console.log(location)
+  const [path, pushLocation] = useLocation()
+
+  console.log(path)
 
   const handleSubmit = (e) => {
     // navegar a otra route
     e.preventDefault()
-    console.log(keyword)
+    pushLocation(`/search/${keyword}`)
   }
 
   const handleChange = (e) => {
@@ -27,7 +28,13 @@ const Home = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <input onChange={handleChange} type="text" value={keyword} />
+          <input 
+          onChange={handleChange} 
+          type="text" 
+          value={keyword}
+          placeholder="Search for a gif" 
+          />
+          <button type="submit">Search</button>
         </div>
       </form>
       <h3 className="App-title">The more searching gifs</h3>

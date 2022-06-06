@@ -1,7 +1,19 @@
 @use '../../__vars' as v;
 
 .ListOfGifs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: v.$max-width;
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+@media (min-width: 60rem) {
+  .ListOfGifs {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ListOfGifs {
+    column-count: 4;
+  }
 }
