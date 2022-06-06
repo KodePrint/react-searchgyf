@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 // Import components
 import Gif from "../../components/Gifs/Gif"
 // Import CSS
 import "./ListOfGifs.scss"
 
 const ListOfGifs = ({ gifs }) => {
+  console.log('-')
 
   return (
     <div className="ListOfGifs">
