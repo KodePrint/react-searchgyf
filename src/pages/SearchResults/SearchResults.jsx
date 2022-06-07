@@ -15,7 +15,10 @@ const SearchResults = ({ params }) => {
   return <>
     {loading 
       ? <Loading /> 
-      : <ListOfGifs gifs={gifs} />
+      : <>
+        <h3 className="App-title">{decodeURI(keyword)}</h3>
+        <ListOfGifs gifs={gifs} />
+      </>
     }
   </>
 }

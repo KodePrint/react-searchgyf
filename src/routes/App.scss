@@ -8,6 +8,14 @@
   }
 }
 
+.App-title {
+  width: 100%;
+  padding: 0 2rem;
+  margin-top: 3rem;
+  text-align: left;
+  text-transform: capitalize;
+}
+
 .App-content {
   background-color: v.$color1;
   min-height: 100vh;
