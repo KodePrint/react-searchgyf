@@ -42,6 +42,12 @@ $colors: (
   $--y-4,
 );
 
+.Loading {
+  display: grid;
+  place-content: center;
+  min-height: 75vh;
+}
+
 h2 {
   display: block;
   color: white;

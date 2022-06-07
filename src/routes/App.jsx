@@ -17,7 +17,7 @@ function App() {
       <div className="App">
         <section className="App-content">
           <Link to='/'>
-            <img className='Logo' src={logo} alt="KodePrint" />
+            <img loading='lazy' className='Logo' src={logo} alt="KodePrint" />
           </Link>
           <GifsContextProvider>
             <Route path="/" component={Home} />
