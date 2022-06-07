@@ -16,6 +16,8 @@ const POPULAR_GIFS = [
 const Home = () => {
   const [keyword, setKeyword] = useState('')
   const [path, pushLocation] = useLocation()
+  const lastKeyword = window.localStorage.getItem('lastKeyword')
+  console.log(lastKeyword)
   const {loading, gifs} = useGifs()
 
   const handleSubmit = (e) => {

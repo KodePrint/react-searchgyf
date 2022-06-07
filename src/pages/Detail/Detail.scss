@@ -1,0 +1,5 @@
+@use '../../__vars.scss' as v;
+
+.Detail {
+  max-width: v.$max-width;
+}
