@@ -30,22 +30,32 @@ export const LazyTrending = () => {
 
   useEffect(() => {
 
+    let observer
+
     const onChange = (entries) => {
       const el = entries[0]
-      console.log(el.isIntersecting)
       if (el.isIntersecting) {
         setShow(true)
         observer.disconnect()
       }
     }
 
-    const observer = new IntersectionObserver(onChange, {
-      rootMargin: '50px'
+    // Utilizando el polifyl de intersection-observer
+    Promise.resolve(
+      typeof window.IntersectionObserver !== 'undefined'
+        ? IntersectionObserver
+        : import ('intersection-observer')
+    ).then(() => {
+      observer = new IntersectionObserver(onChange, {
+        rootMargin: '50px'
+      })
+
+      observer.observe(elementRef.current)
     })
 
-    observer.observe(elementRef.current)
 
-    return () => observer.disconnect()
+
+    return () => observer && observer.disconnect()
   })
 
   return <div ref={elementRef} id="LazyTrending">
