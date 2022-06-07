@@ -2,15 +2,21 @@ import { useState, useEffect, useContext } from "react";
 import { getGifs } from "services/getGifs";
 import GifsContext from "context/GifsContext";
 
+const INTIAL_PAGE = 0;
+
 export const useGifs = ({ keyword } = { keyword: null }) => {
   const [loading, setLoading] = useState(false)
+  const [loadingNextPage, setLoadingNextPage] = useState(false)
+  const [page, setPage] = useState(INTIAL_PAGE)
   //const [gifs, setGifs] = useState([])
   const { gifs, setGifs } = useContext(GifsContext)
-
+  
+  // Recuperamos la ultima busqueda
+  const kyewordToUse = keyword || window.localStorage.getItem('lastKeyword') || 'random'
+  
+  // Efecto de carga de los gifs
   useEffect(() => {
     setLoading(true)
-    // Recuperamos la ultima busqueda
-    const kyewordToUse = keyword || window.localStorage.getItem('lastKeyword') || 'random'
 
     getGifs({ keyword: kyewordToUse })
       .then(gifs => {
@@ -18,7 +24,20 @@ export const useGifs = ({ keyword } = { keyword: null }) => {
         setLoading(false)
         window.localStorage.setItem('lastKeyword', keyword)
       })
-  }, [keyword, setGifs])
+  }, [keyword, kyewordToUse, setGifs])
 
-  return { loading, gifs }
+  // Efecto cada vez que la pagina cambie
+  useEffect(() => {
+    if (page === INTIAL_PAGE) return
+
+    setLoadingNextPage(true)
+
+    getGifs({ keyword: kyewordToUse })
+      .then(nextGifs => {
+        setGifs(prevGifs => prevGifs.concat(nextGifs))
+        setLoadingNextPage(false)
+      })
+  }, [kyewordToUse, page, setGifs])
+
+  return { loading, gifs, setPage }
 }
