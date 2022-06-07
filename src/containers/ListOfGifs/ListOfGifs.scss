@@ -2,6 +2,7 @@
 
 .ListOfGifs {
   max-width: v.$max-width;
+  min-height: 100vh;
   column-count: 2;
   column-gap: 1rem;
   padding: 2rem;

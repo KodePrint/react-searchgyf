@@ -1,5 +1,5 @@
 // Import components
-import Gif from "../../components/Gifs/Gif"
+import Gif from "components/Gifs/Gif"
 // Import CSS
 import "./ListOfGifs.scss"
 

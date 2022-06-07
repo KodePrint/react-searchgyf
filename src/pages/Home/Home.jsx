@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 // Import components
-import ListOfGifs from "../../containers/ListOfGifs/ListOfGifs";
-import Loading from '../../components/Loading/Loading'
-import TrendingSearches from "../../components/TrendingSearches/TrendingSearches";
+import ListOfGifs from "containers/ListOfGifs/ListOfGifs";
+import Loading from 'components/Loading/Loading'
+// import TrendingSearches from "containers/TrendingSearches/TrendingSearches";
+import { LazyTrending } from "containers/TrendingSearches/TrendingSearches";
 // Import custom hooks
-import { useGifs } from "../../hooks/useGifs";
+import { useGifs } from "hooks/useGifs";
 
 const POPULAR_GIFS = [
   'Super Sayayin 4',
@@ -42,21 +43,11 @@ const Home = () => {
           <button type="submit">Search</button>
         </div>
       </form>
-      <TrendingSearches />
-      <h3>Last Search</h3>
-      { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
-      <h3 className="App-title">The more searching gifs</h3>
-      <ul>
-        {
-          POPULAR_GIFS.map(popularGif => (
-            <li key={popularGif}>
-              <Link to={`/search/${popularGif}`}>
-                Gif  de {popularGif}
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
+      <div className="LastSearch">
+        <h3>Last Search</h3>
+        { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
+      </div>
+      <LazyTrending />
     </>
   );
 }
