@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='SearchForm'>
         <div className="input-group">
           <input 
           onChange={handleChange} 

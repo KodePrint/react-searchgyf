@@ -6,11 +6,7 @@ const Gif = ({id, title, url}) => {
   return (
     <div className="Gif">
       <Link to={`/gif/${id}`}>
-        {/* <h4>
-          <span>
-            { title }
-          </span>
-        </h4> */}
+        <h4>{title}</h4>
         <img loading='lazy' src={ url } alt="gif" />
       </Link>
     </div>
