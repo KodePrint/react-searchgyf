@@ -1,19 +1,12 @@
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 // Import components
 import ListOfGifs from "containers/ListOfGifs/ListOfGifs";
 import Loading from 'components/Loading/Loading'
 // import TrendingSearches from "containers/TrendingSearches/TrendingSearches";
-import { LazyTrending } from "containers/TrendingSearches/TrendingSearches";
+import { LazyTrending } from "containers/TrendingSearches/LazyTrending";
 // Import custom hooks
 import { useGifs } from "hooks/useGifs";
-
-const POPULAR_GIFS = [
-  'Super Sayayin 4',
-  'Mario',
-  'Homero',
-  'Rocket Racoon'
-]
 
 const Home = () => {
   const [keyword, setKeyword] = useState('')

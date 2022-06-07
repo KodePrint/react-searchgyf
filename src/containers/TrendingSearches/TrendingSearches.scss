@@ -1,13 +1,14 @@
 @use '../../__vars' as v;
 
 .Category {
-  width: 100%;
+  width: 100vw;
   max-width: v.$max-width;
   padding: 0 2rem;
   margin-bottom: 2rem;
 
   h4 {
     padding-bottom: 1rem;
+    width: 100%;
     border-bottom: rgba(255, 255, 255, 0.1) solid .2rem;
   }
 
