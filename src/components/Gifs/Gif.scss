@@ -1,28 +1,31 @@
 @use '../../__vars' as v;
 
 .Gif {
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
-  display: inline-block;
   width: 100%;
-  overflow: hidden;
+  display: block;
   position: relative;
   transition: .3s all ease;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  
+  a {
+    display: flex;
+    height: 100%;
+  };
 
   h4 {
     position: absolute;
     width: 100%;
-    height: 75%;
-    bottom: .65rem;
+    height: 100%;
+    bottom: 0;
     padding: 1.6rem 1rem;
     color: #fff;
     align-items: flex-end;
     display: flex;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: 1.2rem;
     background: #000;
     background: linear-gradient(0deg, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0) 100%);
-    border-radius: .9rem;
     transition: .3s all ease;
     text-align: left;
     opacity: 0;
@@ -30,7 +33,6 @@
   
   img {
     border-radius: 1rem;
-    object-fit: contain;
     width: 100%;
   }
 

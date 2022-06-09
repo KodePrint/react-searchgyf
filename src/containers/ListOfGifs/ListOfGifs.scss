@@ -1,13 +1,31 @@
 @use '../../__vars' as v;
 
 .ListOfGifs {
+  // width: 100%;
+  // max-width: min(100%, v.$max-width);
+  // min-height: 100vh;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  // grid-template-rows: masonry;
+  // align-items: center;
+  // gap: 1.4rem;
+  // padding: 2rem;
+}
+
+.ListOfGifs {
   width: 100%;
-  max-width: min(100%, v.$max-width);
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-  grid-template-rows: masonry;
-  align-items: center;
-  gap: 1.4rem;
+  max-width: v.$max-width;
   padding: 2rem;
+  
+  .my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    width: auto;
+
+    .my-masonry-grid_column {
+      padding: 1rem;
+    }
+
+  }
 }
