@@ -21,6 +21,7 @@ const ListOfGifs = ({ gifs }) => {
   return (
     <div ref={container} className="ListOfGifs">
       <Masonry
+        className='my-masonry-grid'
         breakpointCols={breakpointColumnsObj}
         columnClassName='my-masonry-grid_column'
       >
