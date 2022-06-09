@@ -32,12 +32,12 @@ export const useGifs = ({ keyword } = { keyword: null }) => {
 
     setLoadingNextPage(true)
 
-    getGifs({ keyword: kyewordToUse })
+    getGifs({ keyword: kyewordToUse, page })
       .then(nextGifs => {
         setGifs(prevGifs => prevGifs.concat(nextGifs))
         setLoadingNextPage(false)
       })
   }, [kyewordToUse, page, setGifs])
 
-  return { loading, gifs, setPage }
+  return { loading, loadingNextPage, gifs, setPage }
 }
