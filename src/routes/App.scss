@@ -10,6 +10,7 @@
 
 .App-title {
   width: 100%;
+  max-width: v.$max-width;
   padding: 0 2rem;
   margin-top: 3rem;
   text-align: left;
@@ -30,6 +31,26 @@
     color: v.$color4;
     font-size: 3.2rem;
     text-decoration: none;
+  }
+}
+.btn-primary {
+  width: 100%;
+  max-width: 30rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  border: .2rem transparent solid;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: v.$color4;
+  border-color: v.$color4;
+  color: white;
+  margin-bottom: 2rem;
+  transition: .3s all ease;
+
+  &:hover {
+    background-color: v.$color3;
+    color: v.$color4;
+    border-color: v.$color4;
   }
 }
 

@@ -22,7 +22,11 @@ const SearchResults = ({ params }) => {
         <ListOfGifs gifs={gifs} />
       </>
     }
-    <button onClick={handleNextPage}>Get next page</button>
+    <button 
+    className="btn-primary btn-more-gifs" 
+    onClick={handleNextPage}>
+      Get more Gif's
+    </button>
   </>
 }
 
