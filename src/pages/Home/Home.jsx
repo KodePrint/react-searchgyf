@@ -18,17 +18,17 @@ const Home = () => {
     pushLocation(`/search/${keyword}`)
   }, [pushLocation])
   
-
-  return (
-    <>
-      <SearchForm onSubmit={handleSubmit} />
-      <div className="LastSearch">
-        <h3>Last Search</h3>
-        { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
-      </div>
-      <LazyTrending />
-    </>
-  );
+  return (<h1>Home</h1>)
+  // return (
+  //   <>
+  //     <SearchForm onSubmit={handleSubmit} />
+  //     <div className="LastSearch">
+  //       <h3>Last Search</h3>
+  //       { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
+  //     </div>
+  //     <LazyTrending />
+  //   </>
+  // );
 }
 
 export default Home;

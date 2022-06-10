@@ -1,6 +1,11 @@
-import { Route, Link } from 'wouter';
+import { Route, Link, Switch } from 'wouter';
+// Import components
+import Navbar from 'containers/Navbar/Navbar';
 // Import pages
+import Wrapper from 'pages/Wrapper/Wrapper';
 import Home from 'pages/Home/Home';
+import NotFound from 'pages/NotFound/NotFound';
+import Login from 'pages/Login/Login';
 import SearchResults from 'pages/SearchResults/SearchResults';
 import Detail from 'pages/Detail/Detail';
 // Import context
@@ -8,25 +13,21 @@ import { GifsContextProvider } from 'context/GifsContext';
 // Import assets
 import logo from 'assets/logos/KodePrint_Withe.png'
 // Import css
-import './App.scss'
+import AppStyle from './styles.module.css';
 
 function App() {
   
   return (
-    // <StaticContext.Provider value={ {name: 'KodePrint', suscribeteAlCanal: true} }>
-      <div className="App">
-        <section className="App-content">
-          <Link to='/'>
-            <img loading='lazy' className='Logo' src={logo} alt="KodePrint" />
-          </Link>
-          <GifsContextProvider>
+    <div className={AppStyle.app}>
+        <Navbar />
+        <Wrapper>
+          <Switch>
             <Route path="/" component={Home} />
-            <Route path="/search/:keyword" component={SearchResults} />
-            <Route path="/gif/:id" component={Detail} />
-          </GifsContextProvider>
-        </section>
-      </div>
-    // </StaticContext.Provider>
+            <Route path="/login" component={Login} />
+            <Route component={NotFound} />
+          </Switch>
+        </Wrapper>
+    </div>
   );
 }
 
