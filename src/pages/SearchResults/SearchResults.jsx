@@ -14,21 +14,21 @@ const SearchResults = ({ params }) => {
   const { keyword } = params
   const { loading, gifs, setPage } = useGifs({ keyword })
   const externalRef = useRef()
-  const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef, once: false })
+  const { isNearScreen } = useNearScreen({ 
+    externalRef: loading ? null : externalRef, 
+    once: false 
+  })
 
-  // const handleNextPage = () => setPage(prevPage => prevPage + 1)
-
-  const handleNextGifs = () => setPage(prevPage => prevPage + 1)
-
-  const debounceHandleNextGifs = useCallback(debounce(
-    () => setPage(prevPage => prevPage + 1), 1000
-  ), [])
+  const debounceHandleNextPage = useCallback(
+    debounce(
+      () => setPage(prevPage => prevPage + 1), 200
+    ), 
+  [])
+  
   
   useEffect(() => {
-    console.log(isNearScreen)
-    if (isNearScreen) debounceHandleNextGifs()
-  }, [debounceHandleNextGifs, isNearScreen])
-
+    if (isNearScreen) debounceHandleNextPage()
+  }, [debounceHandleNextPage, isNearScreen])
   
   return <>
     {loading 
