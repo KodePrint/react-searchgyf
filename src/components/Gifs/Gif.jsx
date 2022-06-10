@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'wouter'
 import './Gif.scss'
 
@@ -45,4 +45,4 @@ const Gif = ({id, title, url}) => {
   )
 }
 
-export default Gif
+export default React.memo(Gif)
