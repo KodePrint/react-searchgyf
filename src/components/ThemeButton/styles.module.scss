@@ -1,0 +1,56 @@
+@use '../../__vars' as v;
+
+.themeBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  padding: 0 .2rem;
+  border: none;
+  background: v.$contet-bg;
+  position: relative;
+  font-size: 2.2rem;
+  box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.5);
+  transition: .3s all ease;
+
+
+  span {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    
+    &:nth-child(1) {
+      color: rgb(255, 170, 0);
+    }
+
+    &:nth-child(2) {
+      color: rgb(249, 249, 130);
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: v.$secondary;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2.5rem;
+    top: 0;
+    right: 0;
+    box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.5);
+    transition: .3s all ease;
+
+  }
+}
+
+.darkBtn {
+  background: v.$gray;
+
+  &::after {
+    transform: translateX(-2.5rem);
+    background: v.$pink;
+  }
+}

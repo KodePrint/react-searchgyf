@@ -1,4 +1,5 @@
 import { useLocation } from "wouter";
+// Import context
 // Import components
 import SearchForm from "components/SearchForm/SearchForm";
 import ListOfGifs from "containers/ListOfGifs/ListOfGifs";
@@ -7,16 +8,17 @@ import Loading from 'components/Loading/Loading'
 import { LazyTrending } from "containers/TrendingSearches/LazyTrending";
 // Import custom hooks
 import { useGifs } from "hooks/useGifs";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 
 const Home = () => {
-  const [path, pushLocation] = useLocation()
-  const {loading, gifs} = useGifs()
+  
+  // const [path, pushLocation] = useLocation()
+  // const {loading, gifs} = useGifs()
 
-  const handleSubmit = useCallback(({ keyword }) => {
-    // navegar a otra route
-    pushLocation(`/search/${keyword}`)
-  }, [pushLocation])
+  // const handleSubmit = useCallback(({ keyword }) => {
+  //   // navegar a otra route
+  //   pushLocation(`/search/${keyword}`)
+  // }, [pushLocation])
   
   return (<h1>Home</h1>)
   // return (
