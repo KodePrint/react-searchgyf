@@ -13,13 +13,17 @@ import {
 } from 'react-icons/ri';
 // Import components
 import ThemeButton from "components/ThemeButton/ThemeButton";
-// Impor css module
+// Import Custom Hooks
+import { useTheme } from "hooks/useTheme";
+// Import css module
 import NavStyle from './styles.module.scss';
 
 const Navbar = () => {
 
+  const { theme } = useTheme();
+
   return (
-    <nav className={NavStyle.navbar}>
+    <nav className={`${theme === 'light' ? NavStyle.light : NavStyle.dark }` }>
       <ul className={NavStyle.ul}>
         <li>
           <Link to="/">

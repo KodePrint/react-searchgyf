@@ -1,35 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // Import icons
 import { RiMoonFill, RiSunFill } from 'react-icons/ri';
-import { useContext } from "react";
 // Import customHooks
 import { useTheme } from 'hooks/useTheme';
 // Import context
-// Import servicves
-import { getSystemTheme } from "services/getSystemTheme";
 // Import styles
 import ThemeBtnStyle from './styles.module.scss';
 
 const ThemeButton = () => {
-  const [themeDark, setThemeDark] = useState();
-
-  useEffect(() => {
-    if (getSystemTheme() === 'dark' && themeDark === true) {
-      setThemeDark(true);
-    } else {
-      setThemeDark(false)
-    }
-  }, [themeDark, setThemeDark]);
+  const { theme, setTheme} = useTheme()
 
   const handleChangeTheme = () => {
-    setThemeDark(!themeDark);
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
+
+  console.log(theme)
 
   return (
     <button
       onClick={handleChangeTheme} 
       // className={`${ThemeBtnStyle.themeBtn} ${themeDark ? ThemeBtnStyle.darkBtn : ''}`}
-      className={`${ThemeBtnStyle.themeBtn}`}
+      className={
+        `${theme === 'light' 
+          ? (ThemeBtnStyle.base +' '+ ThemeBtnStyle.light) 
+          : (ThemeBtnStyle.base +' '+ ThemeBtnStyle.dark) }` }
     >
       <span>
         <RiSunFill />

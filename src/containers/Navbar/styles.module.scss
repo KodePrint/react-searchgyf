@@ -1,19 +1,20 @@
 @use '../../__vars' as v;
 
-.navbar {
+.light {
   display: flex;
   align-items: center;
   position: fixed;
   width: 100vw;
   height: 5rem;
   bottom: 0;
-  background-color: v.$contet-bg;
-  
+  background-color: v.$light-secondary;
+  transition: .3s all ease;
+
   .ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: v.$text;
+    color: v.$dark-text;
     font-size: 2.6rem;
     list-style: none;
     height: 100%;
@@ -34,7 +35,7 @@
 
       a {
         text-decoration: none;
-        color: v.$text;
+        color: v.$dark-text;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -50,6 +51,56 @@
   }
 }
 
+.dark {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 5rem;
+  bottom: 0;
+  background: v.$dark-secondary;
+  transition: .3s all ease;
+
+  .ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: v.$dark-text;
+    font-size: 2.6rem;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      border-radius: .5rem;
+
+      &:last-child {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: v.$dark-text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        span {
+          display: none;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
 
 
 

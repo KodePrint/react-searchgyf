@@ -1,8 +1,10 @@
+@use '../../__vars' as v;
+
 header {
   display: flex;
   width: 100vw;
   height: 5rem;
-  background: teal;
+  background: v.$dark-secondary;
 
   div {
     width: 100%;

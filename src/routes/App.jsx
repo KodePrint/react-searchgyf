@@ -12,7 +12,7 @@ import SearchResults from 'pages/SearchResults/SearchResults';
 import Detail from 'pages/Detail/Detail';
 // Import context
 import { GifsContextProvider } from 'context/GifsContext';
-import { ThemeContextProvider } from 'context/ThemeContext';
+import { ThemeContext } from 'context/ThemeContext';
 // Import customHooks
 // Import assets
 import logo from 'assets/logos/KodePrint_Withe.png'
@@ -20,21 +20,20 @@ import logo from 'assets/logos/KodePrint_Withe.png'
 import AppStyle from './styles.module.css';
 
 function App() {
+  const { theme } = useContext(ThemeContext);
   
   return (
-    <ThemeContextProvider>
-      <div className={AppStyle.app}>
-        <HeadBar />
-          <Navbar />
-          <Wrapper>
-            <Switch>
-              <Route path="/" component={Home} />
-              <Route path="/login" component={Login} />
-              <Route component={NotFound} />
-            </Switch>
-          </Wrapper>
-      </div>
-    </ThemeContextProvider>
+    <div className={theme}>
+      <HeadBar />
+        <Navbar />
+        <Wrapper>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route component={NotFound} />
+          </Switch>
+        </Wrapper>
+    </div>
   );
 }
 

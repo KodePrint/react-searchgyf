@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import { getSystemTheme } from 'services/getSystemTheme'
 
-const Context = React.createContext({})
+export const ThemeContext = React.createContext({})
 
 export const ThemeContextProvider = ({children}) => {
-  const [themeDark, setThemeDark] = useState()
+  // Get localStorage theme
+  const localTheme = window.localStorage.getItem('theme') || getSystemTheme()
+  // Local Storage to save the theme chocie
+  const [theme, setTheme] = useState(localTheme)
 
-  return <Context.Provider value={{ themeDark, setThemeDark }} >
+  return <ThemeContext.Provider value={{ theme, setTheme }} >
     {children}
-  </Context.Provider>
+  </ThemeContext.Provider>
 }
-
-export default Context
