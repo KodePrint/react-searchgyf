@@ -4,20 +4,20 @@ import { Route, Link, Switch } from 'wouter';
 import Navbar from 'containers/Navbar/Navbar';
 import HeadBar from 'containers/HeadBar/HeadBar';
 // Import pages
+import FavsGifs from 'pages/FavsGifs/FavsGifs';
 import Wrapper from 'containers/Wrapper/Wrapper';
 import Home from 'pages/Home/Home';
 import NotFound from 'pages/NotFound/NotFound';
 import Login from 'pages/Login/Login';
+import SearchPage from 'pages/SearchPage/SearchPage';
 import SearchResults from 'pages/SearchResults/SearchResults';
 import Detail from 'pages/Detail/Detail';
 // Import context
 import { GifsContextProvider } from 'context/GifsContext';
 import { ThemeContext } from 'context/ThemeContext';
 // Import customHooks
-// Import assets
-import logo from 'assets/logos/KodePrint_Withe.png'
+// Import assetsgit a
 // Import css
-import AppStyle from './styles.module.css';
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -28,9 +28,15 @@ function App() {
         <Navbar />
         <Wrapper>
           <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route component={NotFound} />
+            <GifsContextProvider>
+              <Route path="/" component={Home} />
+              <Route path="/search" component={SearchPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/favs" component={FavsGifs} />
+              <Route path="/search/:keyword" component={SearchResults} />
+              <Route path="/gif/:id" component={Detail} />
+              <Route path='*' component={NotFound} />
+            </GifsContextProvider>
           </Switch>
         </Wrapper>
     </div>

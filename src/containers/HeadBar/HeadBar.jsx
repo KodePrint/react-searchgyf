@@ -12,15 +12,17 @@ const HeadBar = () => {
   const { theme } = useTheme();
 
   return (
-    <header>
+    <header
+      className={
+        `${theme === 'light' 
+        ? (HeadBarStyle.header +' '+ HeadBarStyle.light) 
+        : (HeadBarStyle.header +' '+ HeadBarStyle.dark) }` }
+    >
       <div className="logo">
         <img src="" alt="Logo" />
         <h1>SearchPhy</h1>
       </div>
-      <div className={
-        `${theme === 'light' 
-        ? (HeadBarStyle.header +' '+ HeadBarStyle.light) 
-        : (HeadBarStyle.header +' '+ HeadBarStyle.dark) }` }
+      <div 
       >
         <Link to="/">
         </ Link>

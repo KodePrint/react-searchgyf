@@ -1,0 +1,16 @@
+@use '../../__vars' as v;
+
+.base {
+  padding: 2rem;
+  font-size: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.light {
+  border-bottom: .2rem solid v.$light-enfasis;
+}
+
+.dark {
+  border-bottom: .2rem solid v.$dark-primary;
+}

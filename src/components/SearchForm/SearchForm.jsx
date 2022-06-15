@@ -1,6 +1,16 @@
+// Import React Icons
+import { RiSearch2Line } from 'react-icons/ri';
+// Import Custom Hooks
+import { useTheme } from 'hooks/useTheme';
+// Import Styles
+import Styles from './styles.module.scss';
+
+
 import React, { useRef } from "react";
 
 const SearchForm = ({ onSubmit }) => {
+  const { theme } = useTheme();
+
   const formRef = useRef();
 
   const handleSubmit = (e) => {
@@ -14,7 +24,11 @@ const SearchForm = ({ onSubmit }) => {
     <form
       ref={formRef} 
       onSubmit={handleSubmit} 
-      className='SearchForm'
+      className={
+        `${theme === 'light' 
+          ? (Styles.searchForm +' '+ Styles.light) 
+          : (Styles.searchForm +' '+ Styles.dark) }`
+        }
     >
       <div className="input-group">
         <input
@@ -22,7 +36,12 @@ const SearchForm = ({ onSubmit }) => {
           type="text" 
           placeholder="Search for a gif" 
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <span>
+            <RiSearch2Line />
+          </span>
+          Search
+        </button>
       </div>
     </form>
   );

@@ -2,9 +2,11 @@
 
 .Gif {
   width: 100%;
+  max-width: 60rem;
   display: block;
   position: relative;
   transition: .3s all ease;
+  margin: 0 auto;
   margin-bottom: 2rem;
   overflow: hidden;
   border-radius: 1rem;

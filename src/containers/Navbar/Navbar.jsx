@@ -19,6 +19,7 @@ import { useTheme } from "hooks/useTheme";
 import NavStyle from './styles.module.scss';
 
 const Navbar = () => {
+  const [path] = useLocation();
 
   const { theme } = useTheme();
 
@@ -40,19 +41,31 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/">
-            <RiHome5Fill />
+            {
+              path.slice(1) === ''
+                ? <RiHome5Fill/>
+                : <RiHome5Line />
+            }
             <span>Home</span>
           </Link>
         </li>
         <li>
-          <Link to='#'>
-            <RiSearch2Line />
+          <Link to='/search'>
+            {
+              path.includes('/search') 
+                ? <RiSearch2Fill/>
+                : <RiSearch2Line />
+            }
             <span>Search</span>
           </Link>
         </li>
         <li>
-          <Link to='/fav'>
-            <RiHeart3Line />
+          <Link to='/favs'>
+            {
+              path.includes('/favs') 
+                ? <RiHeart3Fill />
+                : <RiHeart3Line />
+            }
             <span>Favorites</span>
           </Link>
         </li>

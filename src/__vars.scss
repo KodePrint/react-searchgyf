@@ -1,10 +1,14 @@
 // Colors for white theme
-$light-bg: #faf7f3;
+$light-bg: #dfdfdf;
 $light-text: #4b4b4b;
 $light-primary: #FFC759;
 $light-secondary: #607196;
 $light-tertiary: #BABFD1;
-$light-enfasis: #F93943;
+$light-enfasis: #fa5b63;
+$light-primary-hover: #ffb41f;
+$light-secondary-hover: #335399;
+$light-tertiary-hover: #697fd1;
+$light-enfasis-hover: #db3139;
 
 // Colors for dark theme
 $dark-bg: #343d47;
@@ -13,6 +17,10 @@ $dark-primary: #FDA96D;
 $dark-secondary: #1d2832;
 $dark-tertiary: #BAC3CD;
 $dark-enfasis: #F93930;
+$dark-primary-hover: #ff8b38;
+$dark-secondary-hover: #0a1d2e;
+$dark-tertiary-hover: #7fa4ce;
+$dark-enfasis-hover: #fa1c10;
 
 // Width Sizes
 $max-width: 120rem;

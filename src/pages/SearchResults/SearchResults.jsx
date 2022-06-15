@@ -9,6 +9,9 @@ import ListOfGifs from "containers/ListOfGifs/ListOfGifs";
 // Import custom hooks
 import { useGifs } from "hooks/useGifs";
 import { useNearScreen } from "hooks/useNearScreen";
+import { useTheme } from "hooks/useTheme";
+// Import Styles
+import SearchResultTitle from './styles.module.scss';
 
 const SearchResults = ({ params }) => {
   const { keyword } = params
@@ -18,6 +21,8 @@ const SearchResults = ({ params }) => {
     externalRef: loading ? null : externalRef, 
     once: false 
   })
+
+  const { theme } = useTheme()
 
   const debounceHandleNextPage = useCallback(
     debounce(
@@ -34,7 +39,14 @@ const SearchResults = ({ params }) => {
     {loading 
       ? <Loading /> 
       : <>
-        <h3 className="App-title">{decodeURI(keyword)}</h3>
+        <h3 className={
+          `${theme === 'light' 
+            ? (SearchResultTitle.base +' '+ SearchResultTitle.light) 
+            : (SearchResultTitle.base +' '+ SearchResultTitle.dark) }`
+        }
+        >
+          <b>{decodeURI(keyword)}</b>
+        </h3>
         <ListOfGifs gifs={gifs} />
         <div id="visor" ref={externalRef}></div>
       </>

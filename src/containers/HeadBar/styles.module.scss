@@ -7,7 +7,9 @@ header {
   width: 100vw;
   height: 7rem;
   background: rgba(0, 0, 0, .02);
-  box-shadow: rgba(0, 0, 0, .5) 0 0.5rem 2rem;
+  box-shadow: rgba(0, 0, 0, .5) 0 0.1rem 1rem;
+  background: v.$dark-bg;
+  z-index: 999;
 
   div {
     width: 100%;
@@ -27,7 +29,8 @@ header {
 
 
 .light {
-  box-shadow: rgba(255, 255, 255, .1) 0 0.5rem 2rem;
+  background: v.$light-bg;
+  box-shadow: rgba(0, 0, 0, .5) 0 0.1rem 1rem;
 }
 
 @media (min-width: 768px) {
