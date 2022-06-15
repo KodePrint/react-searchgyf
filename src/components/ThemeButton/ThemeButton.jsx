@@ -14,8 +14,6 @@ const ThemeButton = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
-  console.log(theme)
-
   return (
     <button
       onClick={handleChangeTheme} 

@@ -4,7 +4,7 @@ import { Route, Link, Switch } from 'wouter';
 import Navbar from 'containers/Navbar/Navbar';
 import HeadBar from 'containers/HeadBar/HeadBar';
 // Import pages
-import Wrapper from 'pages/Wrapper/Wrapper';
+import Wrapper from 'containers/Wrapper/Wrapper';
 import Home from 'pages/Home/Home';
 import NotFound from 'pages/NotFound/NotFound';
 import Login from 'pages/Login/Login';

@@ -1,10 +1,13 @@
 @use '../../__vars' as v;
 
 header {
+  position: fixed;
+  top: 0;
   display: flex;
   width: 100vw;
-  height: 5rem;
-  background: v.$dark-secondary;
+  height: 7rem;
+  background: rgba(0, 0, 0, .02);
+  box-shadow: rgba(0, 0, 0, .5) 0 0.5rem 2rem;
 
   div {
     width: 100%;
@@ -13,7 +16,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    &:first-child {
+      img {
+        margin-right: .5rem;
+      }
+    }
   }
+}
+
+
+.light {
+  box-shadow: rgba(255, 255, 255, .1) 0 0.5rem 2rem;
 }
 
 @media (min-width: 768px) {

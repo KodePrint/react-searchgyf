@@ -23,8 +23,21 @@ const Navbar = () => {
   const { theme } = useTheme();
 
   return (
-    <nav className={`${theme === 'light' ? NavStyle.light : NavStyle.dark }` }>
+    <nav className={
+      `${theme === 'light' 
+        ? (NavStyle.base +' '+ NavStyle.light) 
+        : (NavStyle.base +' '+ NavStyle.dark) }` }
+      >
       <ul className={NavStyle.ul}>
+        <li>
+          <Link to="/">
+            <img src="" alt="Logo" />
+            <h1>SearchPhy</h1>
+          </Link>
+        </li>
+        <li>
+          <ThemeButton />
+        </li>
         <li>
           <Link to="/">
             <RiHome5Fill />
@@ -49,9 +62,6 @@ const Navbar = () => {
             <span>Login</span>
           </Link>
         </li>
-        {/* <li>
-          <ThemeButton />
-        </li> */}
       </ul>
     </nav> 
   )

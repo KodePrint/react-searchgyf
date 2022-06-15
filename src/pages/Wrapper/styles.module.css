@@ -1,6 +1,0 @@
-.wrapper {
-  width: min(120rem, 100vw);
-  min-height: calc(100vh - 5rem);
-  margin: 0 auto;
-  padding: 2rem;
-}
