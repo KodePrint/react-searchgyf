@@ -20,7 +20,8 @@ body {
 
 
 .light {
-  background: v.$light-bg;
+  background: #fff;
+  background: linear-gradient(to right, rgba(v.$light-bg, .1) 0%, v.$light-bg 10%, v.$light-bg 90%, rgba(v.$light-bg, .1) 100%);
   color: v.$light-text;
   transition: .3s all ease;
 }

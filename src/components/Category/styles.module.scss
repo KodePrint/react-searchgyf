@@ -1,0 +1,91 @@
+@use '../../__vars' as v;
+
+.base {
+  display: flex;
+  max-width: 100%;
+  margin: 2rem auto;
+  border-radius: .5rem;
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    transition: .3s all ease;
+    &:hover {
+      transform: scale(130%);
+      text-shadow: 0 .1rem .5rem rgba(0,0,0,.9);
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    li {
+      width: max-content;
+      display: flex;
+      border-left: .2rem solid rgba(255,255,255,.1);
+
+      &:first-child {
+        border-left: none;
+      }
+      
+      a {
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.light {
+  background: rgba(v.$light-tertiary,.8);
+
+  button {
+    color: v.$light-enfasis;
+    &:hover {
+      color: v.$light-enfasis-hover;
+      transform: scale(130%);
+      text-shadow: 0 .1rem .5rem rgba(0,0,0,.9);
+    }
+  }
+  ul {
+    li {
+      a {
+        color: v.$light-text;
+      }
+    }
+  }
+}
+
+.dark {
+  background: rgba(v.$dark-secondary,.8);
+
+  button {
+    color: v.$dark-primary;
+    &:hover {
+      color: v.$dark-primary-hover;
+      transform: scale(130%);
+      text-shadow: 0 .1rem .5rem rgba(0,0,0,.9);
+    }
+  }
+  ul {
+    li {
+      a {
+        color: v.$dark-text;
+      }
+    }
+  }
+}

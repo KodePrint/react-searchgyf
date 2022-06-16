@@ -13,7 +13,7 @@ const fromApiResponseToGifs = apiResponse => {
   return []
 }
 
-export const getTrendingGifs = async ({limit = 25 }= {}) => {
+export const getTrendingGifs = async ({limit = 15 }= {}) => {
   
   const apiURL = `${API_URL}/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g&lang=en`
   

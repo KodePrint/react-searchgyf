@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getTrendingGifs } from "services/getTrendingGifs";
+import { TrendingGifsContext } from "context/TrendinGifsContext";
 
 export const useTrendinGifs = () => {
   const [loading, setLoading] = useState(false)
-  const [trendinGifs, setTrendinGifs] = useState([])
+  const { trendinGifs, setTrendinGifs } = useContext(TrendingGifsContext)
 
   useEffect(() => {
     setLoading(true)
@@ -13,7 +14,7 @@ export const useTrendinGifs = () => {
         setTrendinGifs(gifs)
         setLoading(false)
       })
-  },[])
+  },[setTrendinGifs])
 
   return { loading, trendinGifs }
 }

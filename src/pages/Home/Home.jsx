@@ -21,37 +21,25 @@ const Home = () => {
 
   const { theme } = useTheme()
   const { loading, trendinGifs } = useTrendinGifs()
-  
-  // const [path, pushLocation] = useLocation()
-  // const {loading, gifs} = useGifs()
 
-  // const handleSubmit = useCallback(({ keyword }) => {
-  //   // navegar a otra route
-  //   pushLocation(`/search/${keyword}`)
-  // }, [pushLocation])
-  
   return (
     <div>
+      <LazyTrending />
       <h3 className={
-          `${theme === 'light' 
-            ? (Title.base +' '+ Title.light) 
-            : (Title.base +' '+ Title.dark) }`
-        }
+        `${theme === 'light' 
+        ? (Title.base +' '+ Title.light) 
+        : (Title.base +' '+ Title.dark) }`
+      }
       >
-        Trending</h3>
-      <ListOfGifs gifs={trendinGifs} />
+        Trending
+      </h3>
+      {
+        loading
+        ? <Loading />
+        : <ListOfGifs gifs={trendinGifs} />
+      }
     </div>
   )
-  // return (
-  //   <>
-  //     <SearchForm onSubmit={handleSubmit} />
-  //     <div className="LastSearch">
-  //       <h3>Last Search</h3>
-  //       { loading ? <Loading /> : <ListOfGifs gifs={gifs} /> }
-  //     </div>
-  //     <LazyTrending />
-  //   </>
-  // );
 }
 
 export default Home;

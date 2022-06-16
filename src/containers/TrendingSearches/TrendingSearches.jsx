@@ -4,7 +4,6 @@ import Category from 'components/Category/Category'
 // Import services
 import { getTrendingTerms } from 'services/getTrendingTermsService'
 // Import styles
-import './TrendingSearches.scss'
 
 const TrendingSearches = () => {
   const [trends, setTrends] = useState([])

@@ -14,6 +14,7 @@ import SearchResults from 'pages/SearchResults/SearchResults';
 import Detail from 'pages/Detail/Detail';
 // Import context
 import { GifsContextProvider } from 'context/GifsContext';
+import { TrendinGifsContextProvider } from 'context/TrendinGifsContext';
 import { ThemeContext } from 'context/ThemeContext';
 // Import customHooks
 // Import assetsgit a
@@ -29,6 +30,7 @@ function App() {
         <Wrapper>
           <Switch>
             <GifsContextProvider>
+            <TrendinGifsContextProvider>
               <Route path="/" component={Home} />
               <Route path="/search" component={SearchPage} />
               <Route path="/login" component={Login} />
@@ -36,6 +38,7 @@ function App() {
               <Route path="/search/:keyword" component={SearchResults} />
               <Route path="/gif/:id" component={Detail} />
               <Route path='*' component={NotFound} />
+            </TrendinGifsContextProvider>
             </GifsContextProvider>
           </Switch>
         </Wrapper>
