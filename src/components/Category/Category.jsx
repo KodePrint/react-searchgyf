@@ -1,12 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
 import { Link } from 'wouter';
+// Import components
+import PointsLoading from 'components/Loading/PointsLoading';
 // Import Custom Hooks
 import { useTheme } from 'hooks/useTheme';
 // Import Styles
 import Styles from './styles.module.scss';
 
-const Category = ({ name, options=[] }) => {
+const Category = ({ name, options=[], loading }) => {
 
   const { theme } = useTheme(null);
   const refList = useRef();
@@ -17,6 +19,8 @@ const Category = ({ name, options=[] }) => {
   const slideRight = () => {
     refList.current.scrollLeft = refList.current.scrollLeft + 200;
   }
+
+  console.log(loading);
 
   return (
     <section className={
@@ -31,16 +35,22 @@ const Category = ({ name, options=[] }) => {
       >
         <RiArrowLeftSFill />
       </button>
-      <ul ref={refList} className='list'>
-        {options.map(option => (
-            <li className='element' key={option}>
-              <Link to={`/search/${option}`}>
-                {option}
-              </Link>
-            </li>
+      {
+        loading 
+          ? <PointsLoading />
+          : (
+            <ul ref={refList} className='list'>
+              {options.map(option => (
+                  <li className='element' key={option}>
+                    <Link to={`/search/${option}`}>
+                      {option}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
           )
-        )}
-      </ul>
+      }
       <button
         onClick={slideRight} 
       >
