@@ -20,8 +20,6 @@ const Category = ({ name, options=[], loading }) => {
     refList.current.scrollLeft = refList.current.scrollLeft + 200;
   }
 
-  console.log(loading);
-
   return (
     <section className={
       `${theme === 'light' 

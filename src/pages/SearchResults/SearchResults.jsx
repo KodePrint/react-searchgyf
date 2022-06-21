@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback } from "react";
 import debounce from "just-debounce-it";
+import { Helmet } from "react-helmet";
 // Import components
 import Loading from "components/Loading/Loading";
 // Import containers
@@ -22,8 +23,11 @@ const SearchResults = ({ params }) => {
     once: false 
   })
 
+  
   const { theme } = useTheme()
-
+  
+  const title = gifs ? `${gifs.length} results for ${keyword}` : '';
+  
   const debounceHandleNextPage = useCallback(
     debounce(
       () => setPage(prevPage => prevPage + 1), 200
@@ -36,8 +40,22 @@ const SearchResults = ({ params }) => {
   }, [debounceHandleNextPage, isNearScreen])
   
   return <>
+    <Helmet>
+        <title>{`Searchphy | ${title}`}</title>
+        <meta name="description" content={
+          `Your search returned the following result:
+          ${title}`
+        } />
+    </Helmet>
     {loading 
-      ? <Loading /> 
+      ? (
+        <>
+          <Helmet>
+            <title>Cargando..!</title>
+          </Helmet>
+        <Loading />
+        </>
+      ) 
       : <>
         <h3 className={
           `${theme === 'light' 
