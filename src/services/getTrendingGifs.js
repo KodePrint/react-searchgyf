@@ -6,16 +6,16 @@ const fromApiResponseToGifs = apiResponse => {
     const gifs = data.map(image => {
       const { id, title, images, user, embed_url } = image
       const {height, width, url } = images.downsized_medium
-      return { id, title, embed_url, height, width, url, user }
+      return { id, title, embed_url, height, width, url, user } 
     })
     return gifs
   }
   return []
 }
 
-export const getGifs = async ({ keyword = 'rocket racoon', page = 0, limit = 25 }= {}) => {
+export const getTrendingGifs = async ({limit = 15 }= {}) => {
   
-  const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`
+  const apiURL = `${API_URL}/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g&lang=en`
   
   return await fetch(apiURL)
   .then(res => res.json())

@@ -1,3 +1,9 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
@@ -12,6 +18,18 @@
   border-radius: 50%;
   background: #fff;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div.one {
+background: #565190;
+}
+.lds-ellipsis div.two {
+  background: #05b853;
+  }
+.lds-ellipsis div.tree {
+  background: #fd9c2e;
+}
+.lds-ellipsis div.four {
+  background: #911750;
 }
 .lds-ellipsis div:nth-child(1) {
   left: 8px;

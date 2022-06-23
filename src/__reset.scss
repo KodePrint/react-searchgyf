@@ -1,4 +1,6 @@
-* {
+@use './__vars' as v;
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box
@@ -16,7 +18,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.light {
+  background: #fff;
+  background: linear-gradient(to right, rgba(v.$light-bg, .1) 0%, v.$light-bg 10%, v.$light-bg 90%, rgba(v.$light-bg, .1) 100%);
+  color: v.$light-text;
+  transition: .3s all ease;
+}
+
+.dark {
+  background: v.$dark-bg;
+  color: #fff;
+  transition: .3s all ease;
 }

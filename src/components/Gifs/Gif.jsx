@@ -37,7 +37,9 @@ const Gif = ({id, title, url}) => {
   return (
     <div ref={anchorRef} className="Gif">
       <Link className='gifLink'  to={`/gif/${id}`}>
-        <h4>{title}</h4>
+        <h4>
+          {title}
+        </h4>
         <img loading='lazy' src={ url } alt="gif" />
       </Link>
     </div>

@@ -11,9 +11,14 @@ export const useGifs = ({ keyword } = { keyword: null }) => {
   //const [gifs, setGifs] = useState([])
   const { gifs, setGifs } = useContext(GifsContext)
   
+  if (!keyword) {
+    keyword = window.localStorage.getItem('lastKeyword')
+    if (!keyword) {
+      keyword = 'funny'
+    }
+  }
   // Recuperamos la ultima busqueda
-  const kyewordToUse = keyword || window.localStorage.getItem('lastKeyword') || 'random'
-  
+  const kyewordToUse = keyword
   // Efecto de carga de los gifs
   useEffect(() => {
     setLoading(true)
@@ -22,7 +27,7 @@ export const useGifs = ({ keyword } = { keyword: null }) => {
       .then(gifs => {
         setGifs(gifs)
         setLoading(false)
-        window.localStorage.setItem('lastKeyword', keyword)
+        window.localStorage.setItem('lastKeyword', kyewordToUse)
       })
   }, [keyword, kyewordToUse, setGifs])
 
@@ -39,5 +44,5 @@ export const useGifs = ({ keyword } = { keyword: null }) => {
       })
   }, [kyewordToUse, page, setGifs])
 
-  return { loading, loadingNextPage, gifs, setPage }
+  return { loading, loadingNextPage, gifs, setPage, kyewordToUse }
 }

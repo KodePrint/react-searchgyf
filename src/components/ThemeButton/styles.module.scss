@@ -1,0 +1,115 @@
+@use '../../__vars' as v;
+
+.base {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border: none;
+  padding: 0 .5rem;
+  width: 5.5rem;
+  height: 2.6rem;
+  border-radius: 2.6rem;
+  font-size: 2rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    background-color: v.$dark-bg;
+    border-radius: 100%;
+    box-shadow: .1rem .1rem .5rem rgba(255, 255, 255, 0.5);
+    transition: .3s all ease;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:nth-child(1) {
+      color: rgb(255, 170, 0);
+    }
+
+    &:nth-child(2) {
+      color: rgb(249, 249, 130);
+    }
+  }
+}
+
+.light {
+  background: rgba(v.$dark-bg, 0.9);
+  
+  &::after {
+    background-color: v.$dark-tertiary;
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, 0.5);
+    
+  }
+
+  &:hover::after {
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.9);
+  }
+}
+.dark {
+  background: rgba(v.$dark-bg, 0.9);
+  background: rgba(188, 246, 248, 0.9);
+  
+  &::after {
+    transform: translateX(2.9rem);
+    box-shadow: 0 .1rem .5rem rgba(255, 255, 255, 0.5);
+  }
+  &:hover::after {
+    box-shadow: 0 .1rem .5rem rgba(255, 255, 255, 0.9);
+  }
+}
+
+.themeBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  padding: 0 .2rem;
+  border: none;
+  background: v.$dark-bg;
+  position: relative;
+  font-size: 2.2rem;
+  box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.5);
+  transition: .3s all ease;
+
+
+  span {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    
+    &:nth-child(1) {
+      color: rgb(255, 170, 0);
+    }
+
+    &:nth-child(2) {
+      color: rgb(249, 249, 130);
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: v.$dark-bg;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2.5rem;
+    top: 0;
+    right: 0;
+    box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.5);
+    transition: .3s all ease;
+
+  }
+  
+}

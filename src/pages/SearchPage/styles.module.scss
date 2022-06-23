@@ -1,0 +1,18 @@
+@use '../../__vars' as v;
+
+.title {
+  margin-top: 2rem;
+  padding: 2rem;
+  font-size: 2.4rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+  
+.light {
+  border-bottom: .2rem solid v.$light-enfasis;
+}
+
+.dark {
+  border-bottom: .2rem solid v.$dark-primary;
+}

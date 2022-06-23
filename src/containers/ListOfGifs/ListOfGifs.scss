@@ -16,6 +16,7 @@
   width: 100%;
   max-width: v.$max-width;
   padding: 2rem;
+  min-height: 100vh;
   
   .my-masonry-grid {
     display: -webkit-box; /* Not needed if autoprefixing */

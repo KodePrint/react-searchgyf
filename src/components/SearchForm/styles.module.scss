@@ -1,0 +1,69 @@
+@use '../../__vars' as v;
+
+.searchForm {
+  width: 100%;
+
+  div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 55rem;
+    margin: 0 auto;
+    border-radius: 1.2rem;
+
+    input {
+      width: 100%;
+      border: none;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      outline: none;
+      padding: 1.2rem 2rem;
+      font-size: 1.6rem;
+      color: v.$light-text;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15rem;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      border: none;
+      font-weight: bold;
+      font-size: 1.6rem;
+      color: v.$dark-text;
+      letter-spacing: .1rem;
+      cursor: pointer;
+
+      span {
+        font-size: 2rem;
+        margin-right: .5rem;
+      }
+    }
+
+    &:focus {
+      border: .2rem solid red;
+    }
+  }
+}
+
+.light {
+  button {
+    background: v.$light-enfasis;
+    transition: .3s all ease;
+    &:hover {
+      background: v.$light-enfasis-hover;
+    }
+  }
+}
+
+.dark {
+  button {
+    background: v.$dark-primary;
+    transition: .3s all ease;
+    &:hover {
+      background: v.$dark-primary-hover;
+    }
+  }
+}

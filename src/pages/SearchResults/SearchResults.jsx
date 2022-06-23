@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback } from "react";
 import debounce from "just-debounce-it";
+import { Helmet } from "react-helmet";
 // Import components
 import Loading from "components/Loading/Loading";
 // Import containers
@@ -9,6 +10,9 @@ import ListOfGifs from "containers/ListOfGifs/ListOfGifs";
 // Import custom hooks
 import { useGifs } from "hooks/useGifs";
 import { useNearScreen } from "hooks/useNearScreen";
+import { useTheme } from "hooks/useTheme";
+// Import Styles
+import SearchResultTitle from './styles.module.scss';
 
 const SearchResults = ({ params }) => {
   const { keyword } = params
@@ -19,6 +23,11 @@ const SearchResults = ({ params }) => {
     once: false 
   })
 
+  
+  const { theme } = useTheme()
+  
+  const title = gifs ? `${gifs.length} results for ${keyword}` : '';
+  
   const debounceHandleNextPage = useCallback(
     debounce(
       () => setPage(prevPage => prevPage + 1), 200
@@ -31,10 +40,31 @@ const SearchResults = ({ params }) => {
   }, [debounceHandleNextPage, isNearScreen])
   
   return <>
+    <Helmet>
+        <title>{`Searchphy | ${title}`}</title>
+        <meta name="description" content={
+          `Your search returned the following result:
+          ${title}`
+        } />
+    </Helmet>
     {loading 
-      ? <Loading /> 
+      ? (
+        <>
+          <Helmet>
+            <title>Cargando..!</title>
+          </Helmet>
+        <Loading />
+        </>
+      ) 
       : <>
-        <h3 className="App-title">{decodeURI(keyword)}</h3>
+        <h3 className={
+          `${theme === 'light' 
+            ? (SearchResultTitle.base +' '+ SearchResultTitle.light) 
+            : (SearchResultTitle.base +' '+ SearchResultTitle.dark) }`
+        }
+        >
+          <b>{decodeURI(keyword)}</b>
+        </h3>
         <ListOfGifs gifs={gifs} />
         <div id="visor" ref={externalRef}></div>
       </>

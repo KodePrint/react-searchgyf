@@ -4,18 +4,22 @@ import Category from 'components/Category/Category'
 // Import services
 import { getTrendingTerms } from 'services/getTrendingTermsService'
 // Import styles
-import './TrendingSearches.scss'
 
 const TrendingSearches = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [trends, setTrends] = useState([])
 
   useEffect(() => {
+    setIsLoading(true)
     getTrendingTerms()
-      .then(setTrends)
+      .then(trendinTerms => {
+        setTrends(trendinTerms)
+        setIsLoading(false)
+      })
   }, [])
 
   return (
-    <Category name='Trending' options={trends} />
+    <Category name='Trending' options={trends} loading={isLoading} />
   )
 }
 
